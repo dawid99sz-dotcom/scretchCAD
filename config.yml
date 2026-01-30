@@ -1,0 +1,22 @@
+# Ustawienia backendu - używamy bezpośrednio GitHuba
+backend:
+  name: github
+  repo: dawid99sz-dotcom/scretchCAD
+  branch: main # Upewnij się, że Twoja gałąź to 'main' (czasem jest to 'master')
+
+# Gdzie mają trafiać przesyłane zdjęcia/pliki binarne
+media_folder: "assets"
+public_folder: "/assets"
+
+# Definicja Twoich plików do edycji
+collections:
+  - name: "pliki" # Wewnętrzna nazwa kolekcji
+    label: "Moje Pliki" # Nazwa widoczna w panelu
+    folder: "SCHEMATY" # PODKATALOG, w którym trzymasz pliki do edycji
+    create: true # Pozwala na dodawanie nowych plików z poziomu panelu
+    slug: "{{slug}}" # Jak mają się nazywać pliki (użyje tytułu)
+    extension: "json" # Możesz zmienić na "md" lub "json" w zależności od potrzeb
+    format: "frontmatter" # Pozwala na dodawanie metadanych na górze pliku
+    fields:
+      - { label: "Tytuł pliku", name: "title", widget: "string" }
+      - { label: "Treść", name: "body", widget: "markdown" }
